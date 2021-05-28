@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileAppLab4.StudentPage" Title="Поставить оценку за экзамен"
+             xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Название экзамена" />
+            <Entry Text="{Binding examName}" />
+            <Label Text="Имя студента" />
+            <Entry Text="{Binding studentName}" />
+            <Label Text="Фамилия студента" />
+            <Entry Text="{Binding studentSurname}" />
+            <Label x:Name="dateLabel" Text="Дата проведения экзамена" />
+            <DatePicker x:Name="examDatePicker" Format="D" Date="{Binding Source={x:Static system:DateTime.Today}, Path=examDate}" />
+            <Label Text="Оценка за экзамен" />
+            <Entry x:Name ="markInput" Keyboard="Numeric" Text="{Binding examMark}" />
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Сохранить" Clicked="SaveStudent" />
+                <Button Text="Удалить" Clicked="DeleteStudent" />
+                <Button Text="Отмена" Clicked="Cancel" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
